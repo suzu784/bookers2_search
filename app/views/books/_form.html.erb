@@ -1,0 +1,7 @@
+<%= form_with model: book do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :opinion %><br>
+    <%= f.text_area :body %><br>
+    <%= f.submit "Create Book" %>
+<% end %>

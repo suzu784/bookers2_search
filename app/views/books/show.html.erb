@@ -1,0 +1,27 @@
+<%= render 'layouts/search' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+        <h2>User info</h2>
+          <%= render 'users/info', user: current_user %>
+        <h2 class="mt-3">New Book</h2>
+          <%= render 'form', book: @book_new %>
+      </div>
+      <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><%= image_tag @book.user.get_profile_image(100, 100) %></td>
+                <td><%= link_to @book.title, book_path(@book) %></td>
+                <td><%= @book.body %></td>
+              <% if @book.user == current_user %>
+                <td><%= link_to "Edit", edit_book_path(@book) %></td>
+                <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
